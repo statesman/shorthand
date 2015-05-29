@@ -56,7 +56,6 @@ Here is an example pulling in a Google font and then applying it to those styles
 }
 .section-title .story-heading {
     font-family: 'Merriweather', Arial, serif; font-weight: 400; 
-    
 }
 
 /* Text Over Media */
@@ -69,7 +68,7 @@ Here is an example pulling in a Google font and then applying it to those styles
 
 We've tried using the [Knight Center SoundCiteJS](http://soundcite.knightlab.com/) project in Shorthand, and it is possible, with some caveats.
 
-* The entire paragraph you have that uses the span tage with the sound reference must in an HTML block. Only those with Developer status (Christian & Andrew) can add them.
+* The paragraph of text where you want to us the span tag with the sound reference must in an HTML block. Only those with Developer status (Christian & Andrew) can add them.
 * The SoundCiteJS code can be added outside the `<script>` tags in the JAVASCRIPT section in Shorthand (again, by a developer).
 
 ```
