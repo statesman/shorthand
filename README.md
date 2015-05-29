@@ -10,6 +10,14 @@ Shorthand has a website for [Guidelines and help](http://www.shorthand.happyfox.
 * Thought is as of 5/29/2015 to use the `logo-short-black-ia.png`, which just says Statesman. It has been run through a program called [ImageAlpha](http://pngmini.com) to clean it up, based on Shorthand recommendations.
 * `logo-ia.png` is the full Austin American-Statesman logo, which has been run through ImageAlpha. It is too wide for phones, but we'll retain it in case we want to use it some time in the future.
 
+## Favicon
+
+Add this to the `<head>`.
+
+``` html
+<link rel="shortcut icon" href="http://media.cmgdigital.com/shared/theme-assets/242014/www.statesman.com_5126cb2068bd43d1ab4e17660ac48255.ico" />
+```
+
 ## Metrics
 
 To get metrics on a shorthad project, we need to do the following:
@@ -20,14 +28,14 @@ To get metrics on a shorthad project, we need to do the following:
   * `metrics.inc`
 * Take the following code and drop it into `index.php` AFTER the opening `<head>` tag:
 
-```
+``` php
 <!-- cmg metrics -->
 <?php include "metrics-head.inc";?>
 ```
 
 * Take the following code and drop it BEFORE the closing `</body>` tag:
 
-```
+``` php
 <!-- cmg footer metrics -->
 <script type="text/javascript">
   var projectSite = "statesman";
