@@ -1,12 +1,14 @@
 Shorthand stuff
 ======================
 
+## Shorthand help docs
+
+Shorthand has a website for [Guidelines and help](http://www.shorthand.happyfox.com/home), including [Media sizes](http://www.shorthand.happyfox.com/kb/section/5/).
+
 ## Logo
 
-We're still working out what logo will work best. Christian has a note out asking Rachel at Shorthand about it.
-
-* `logo-320.png` works, but it is too long for phones.
-* `logo-240.png` gets blown out because it isn't big enough.
+* Thought is as of 5/29/2015 to use the `logo-short-black-ia.png`, which just says Statesman. It has been run through a program called [ImageAlpha](http://pngmini.com) to clean it up, based on Shorthand recommendations.
+* `logo-ia.png` is the full Austin American-Statesman logo, which has been run through ImageAlpha. It is too wide for phones, but we'll retain it in case we want to use it some time in the future.
 
 ## Metrics
 
@@ -73,3 +75,5 @@ We've tried using the [Knight Center SoundCiteJS](http://soundcite.knightlab.com
 ```
 <link href='//cdn.knightlab.com/libs/soundcite/latest/css/player.css' rel='stylesheet' type='text/css'><script type='text/javascript' src='//cdn.knightlab.com/libs/soundcite/latest/js/soundcite.min.js'></script>
 ```
+
+You can also drop a regular Soundcloud embed player in as an HTML block.
