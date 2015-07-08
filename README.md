@@ -5,6 +5,31 @@ Shorthand stuff
 
 Shorthand has a website for [Guidelines and help](http://www.shorthand.happyfox.com/home), including [Media sizes](http://www.shorthand.happyfox.com/kb/section/5/).
 
+## Adding Brightcove video
+
+* You'll need this site [www.embedresponsively.com](www.embedresponsively.com), then click on the tab **Generic iFrame**.
+* Go into Brightcove and find your video
+* On the right under Quick Video Publish, go under "Select a player" and choose **JANUS Chromeless Single**.
+* Copy the JavaScript code into the Embed Responsively site and click **Embed**.
+* Go below the video shown and copy the Embed code listed there.
+* Go into Shorthand and create a New Section and pick **Custom HTML**
+* Remove the dummy H1 line and replace it with your embed code.
+
+Note, on Embed Responsibly they suggest taking out any parameters with sizes in the original embed. We haven't at this point, but it might be worth considering if we see sizing problems on some platforms.
+
+## Soundcite
+
+We've tried using the [Knight Center SoundCiteJS](http://soundcite.knightlab.com/) project in Shorthand, and it is possible, with some caveats.
+
+* The paragraph of text where you want to us the span tag with the sound reference must in an HTML block. Only those with Developer status (Christian & Andrew) can add them.
+* The SoundCiteJS code can be added outside the `<script>` tags in the JAVASCRIPT section in Shorthand (again, by a developer).
+
+```
+<link href='//cdn.knightlab.com/libs/soundcite/latest/css/player.css' rel='stylesheet' type='text/css'><script type='text/javascript' src='//cdn.knightlab.com/libs/soundcite/latest/js/soundcite.min.js'></script>
+```
+
+You can also drop a regular Soundcloud embed player in as an HTML block.
+
 ## Logo
 
 * Thought is as of 5/29/2015 to use the `logo-short-black-ia.png`, which just says Statesman. It has been run through a program called [ImageAlpha](http://pngmini.com) to clean it up, based on Shorthand recommendations.
@@ -71,16 +96,3 @@ Here is an example pulling in a Google font and then applying it to those styles
     font-family: 'Merriweather', Arial, serif; font-weight: 900;
 }
 ```
-
-## Soundcite
-
-We've tried using the [Knight Center SoundCiteJS](http://soundcite.knightlab.com/) project in Shorthand, and it is possible, with some caveats.
-
-* The paragraph of text where you want to us the span tag with the sound reference must in an HTML block. Only those with Developer status (Christian & Andrew) can add them.
-* The SoundCiteJS code can be added outside the `<script>` tags in the JAVASCRIPT section in Shorthand (again, by a developer).
-
-```
-<link href='//cdn.knightlab.com/libs/soundcite/latest/css/player.css' rel='stylesheet' type='text/css'><script type='text/javascript' src='//cdn.knightlab.com/libs/soundcite/latest/js/soundcite.min.js'></script>
-```
-
-You can also drop a regular Soundcloud embed player in as an HTML block.
