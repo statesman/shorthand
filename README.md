@@ -45,7 +45,7 @@ Add this to the `<head>`.
 
 ## Metrics
 
-I've moved this from a php-based include system to putting it all in the index.html file.
+I've moved this from a php-based include system to putting it all in the index.html file. I've left the old `metrics-head.inc` and `metrics.inc` files for posterity.
 
 ### In the head
 
@@ -198,6 +198,8 @@ height="1" width="1" border="0" alt="" /></noscript><!--/DO NOT REMOVE/-->
 ```
 
 ## CSS changes
+
+These are optional. With the newer Shorthand template, we don't **have** to change this.
 
 The CSS window has some example targeting like the `story-title` and `story-heading`.
 
