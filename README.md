@@ -51,7 +51,7 @@ I've moved this from a php-based include system to putting it all in the index.h
 
 Place the following code right after the open `<head>` tag:
 
-```
+``` javascript
 <!-- Quantcast Tag, part 1 --> 
 <script type="text/javascript">
   var _qevents = _qevents || [];
