@@ -5,6 +5,12 @@ Shorthand stuff
 
 Shorthand has a website for [Guidelines and help](http://www.shorthand.happyfox.com/home), including [Media sizes](http://www.shorthand.happyfox.com/kb/section/5/).
 
+## Sharing setup
+
+* User our atxne.ws bitly account in Passpack.
+* VIA is is just the account: "statesman" or "austin360"
+* Facebook App ID: 881505665256530
+
 ## Adding Brightcove video
 
 * You'll need this site [www.embedresponsively.com](www.embedresponsively.com), then click on the tab **Generic iFrame**.
