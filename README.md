@@ -36,29 +36,64 @@ We've tried using the [Knight Center SoundCiteJS](http://soundcite.knightlab.com
 
 You can also drop a regular Soundcloud embed player in as an HTML block.
 
-## Logo
+## Getting Shorthand projects wrapped by CMG
+
+We've been sending the index.html file to Jon Robison or Maysam H. to get the minimalist wrap applied to stories. All you have to send them is the index.html file.
+
+Thos wrapped files don't currently have Chartbeat, so we need to manually add it until they do.
+
+
+### In the head
+
+``` javascript
+<!-- chartbeat head -->
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+```
+
+
+### In the body
+
+``` javascript
+<!--  Chartbeat code -->
+
+<script type="text/javascript">
+  var chartbeatdomain = projectSite + '.com'
+  var _sf_async_config = { uid: 31585, domain: chartbeatdomain, useCanonical: true };
+  (function() {
+    function loadChartbeat() {
+      window._sf_endpt = (new Date()).getTime();
+      var e = document.createElement('script');
+      e.setAttribute('language', 'javascript');
+      e.setAttribute('type', 'text/javascript');
+      e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+     document.body.appendChild(e);
+    };
+    var oldonload = window.onload;
+    window.onload = (typeof window.onload != 'function') ?
+      loadChartbeat : function() { oldonload(); loadChartbeat(); };
+  })();
+</script>
+```
+
+### Publishing
+
+We are currently putting these on the projects server. Make sure you've worked with the designer of the project to use the write directory location based on the URL they've put in the sharing setup of the Shorthand project.
+
+## Metrics if not wrapped by CMG
+
+I've moved this from a php-based include system to putting it all in the index.html file. I've left the old `metrics-head.inc` and `metrics.inc` files for posterity.
+
+### Logo
 
 * Thought is as of 5/29/2015 to use the `logo-short-black-ia.png`, which just says Statesman. It has been run through a program called [ImageAlpha](http://pngmini.com) to clean it up, based on Shorthand recommendations.
 * `logo-ia.png` is the full Austin American-Statesman logo, which has been run through ImageAlpha. It is too wide for phones, but we'll retain it in case we want to use it some time in the future.
-
-## Favicon
-
-Add this to the `<head>`.
-
-``` html
-<link rel="shortcut icon" href="http://media.cmgdigital.com/shared/theme-assets/242014/www.statesman.com_5126cb2068bd43d1ab4e17660ac48255.ico" />
-```
-
-## Metrics
-
-I've moved this from a php-based include system to putting it all in the index.html file. I've left the old `metrics-head.inc` and `metrics.inc` files for posterity.
 
 ### In the head
 
 Place the following code right after the open `<head>` tag:
 
 ``` javascript
-<!-- Quantcast Tag, part 1 --> 
+<!-- Quantcast Tag, part 1 -->
 <script type="text/javascript">
   var _qevents = _qevents || [];
   (function() {
@@ -74,7 +109,11 @@ Place the following code right after the open `<head>` tag:
 
 <!-- chartbeat head -->
 <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+<!-- favicon -->
+<link rel="shortcut icon" href="http://media.cmgdigital.com/shared/theme-assets/242014/www.statesman.com_5126cb2068bd43d1ab4e17660ac48255.ico" />
 ```
+
 
 ### In the body
 
@@ -98,7 +137,7 @@ if (projectCategory == "") {
 	projectHier3 = projectChannel
 }
 else if (projectSubCategory == "" && projectCategory != "") {
-	projectHier3 = projectChannel + "|" + projectCategory 
+	projectHier3 = projectChannel + "|" + projectCategory
 }
 else {
 	projectHier3 = projectChannel + "|" + projectCategory + "|" + projectSubCategory
@@ -216,10 +255,10 @@ Here is an example pulling in a Google font and then applying it to those styles
 
 /* Title Section */
 .section-title .story-title {
-    font-family: 'Merriweather', Arial, serif; font-weight: 900; 
+    font-family: 'Merriweather', Arial, serif; font-weight: 900;
 }
 .section-title .story-heading {
-    font-family: 'Merriweather', Arial, serif; font-weight: 400; 
+    font-family: 'Merriweather', Arial, serif; font-weight: 400;
 }
 
 /* Text Over Media */
