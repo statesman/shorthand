@@ -45,6 +45,8 @@ Thos wrapped files don't currently have Chartbeat, so we need to manually add it
 
 ### In the head
 
+The `<head>` tag is in some weird-ass script tag. Search for `/head` to find the end of it and but this code after their `minmalist.js` call.
+
 ``` javascript
 <!-- chartbeat head -->
 <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
@@ -52,6 +54,8 @@ Thos wrapped files don't currently have Chartbeat, so we need to manually add it
 
 
 ### In the body
+
+Same deal as the head, search for `/body` and add this on new lines right before the close tag.
 
 ``` javascript
 <!--  Chartbeat code -->
