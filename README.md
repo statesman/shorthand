@@ -63,7 +63,7 @@ MAKE SURE YOU CHECK THE `chartbeatdoman` FIELD AND UPDATE WITH THE CORRECT DOMAI
 <!--  Chartbeat code -->
 
 <script type="text/javascript">
-  var chartbeatdomain = 'statesman' + '.com'
+  var chartbeatdomain = 'mystatesman' + '.com'
   var _sf_async_config = { uid: 31585, domain: chartbeatdomain, useCanonical: true };
   (function() {
     function loadChartbeat() {
