@@ -57,11 +57,13 @@ The `<head>` tag is in some weird-ass script tag. Search for `/head` to find the
 
 Same deal as the head, search for `/body` and add this on new lines right before the close tag.
 
+MAKE SURE YOU CHECK THE `chartbeatdoman` FIELD AND UPDATE WITH THE CORRECT DOMAIN AS NECESSARY.
+
 ``` javascript
 <!--  Chartbeat code -->
 
 <script type="text/javascript">
-  var chartbeatdomain = projectSite + '.com'
+  var chartbeatdomain = 'statesman' + '.com'
   var _sf_async_config = { uid: 31585, domain: chartbeatdomain, useCanonical: true };
   (function() {
     function loadChartbeat() {
