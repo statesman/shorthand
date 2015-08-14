@@ -45,7 +45,7 @@ Thos wrapped files don't currently have Chartbeat, so we need to manually add it
 
 ### In the head
 
-The `<head>` tag is in some weird-ass script tag. Search for `/head` to find the end of it and but this code after their `minmalist.js` call.
+The `<head>` tag is in some weird-ass script tag. Search for `/head` to find the end of it and put this code after their `minmalist.js` call.
 
 ``` javascript
 <!-- chartbeat head -->
