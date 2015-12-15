@@ -110,9 +110,7 @@ Logos are added at the top fo the free template.
 
 ### In Add JS
 
-The following needs to be added in **Add JS**. Note the first couple of lines need some configuration:
-
-I usually go to an existing page and look at their metrics to decide what to put here.
+The following needs to be added in **Add JS**. Note the first several of lines need configuration. For guidance, I usually look at the source code of an existing page and look at their metrics to decide what to put here.
 
 * projectSite: should be "statesman" or "austin360"
 * projectChannel: The Medley channel. Usually "news" or "sports". Loo for .channel.
@@ -148,9 +146,6 @@ I usually go to an existing page and look at their metrics to decide what to put
 
 <!-- chartbeat head -->
 <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
-
-<!-- favicon -->
-<link rel="shortcut icon" href="http://media.cmgdigital.com/shared/theme-assets/242014/www.statesman.com_5126cb2068bd43d1ab4e17660ac48255.ico" />
 
 <!-- statesman sitecatalyst to test blanks -->
 <script language="JavaScript" type="text/javascript"><!--
@@ -262,5 +257,34 @@ height="1" width="1" border="0" alt="" /></noscript><!--/DO NOT REMOVE/-->
 </script>
 
 ```
+
+
+### Favicons
+
+The only way to update the favicon is to do it after you have downloaded it. You'll add this to index.html. I would add it just after the `<title>` tag.
+
+Statesman
+``` html
+<link rel="shortcut icon" href="http://media.cmgdigital.com/shared/theme-assets/162015/www.statesman.com_bf77ed61f1f94479978e65af7cc32071.ico" />
+```
+
+Austin360
+``` html
+<link rel="shortcut icon" href="http://media.cmgdigital.com/shared/theme-assets/162015/www.austin360.com_22903be6a1284aafae1b0ed32b32c102.ico" />
+```
+
+
+### Publishing
+
+Very rough steps:
+
+* Download the zipped project from Shorthand.
+* Unzip the project
+* Rename the folder the project directory name, like `seasonal-serenades`
+* Add favicon to index.html if you want.
+* FTP into the host.coxmediagroup.com server.
+  - For editorial, go into `prod_aas/projects/[channel name]/`
+  - For sponsored content, the ftp username/password should take you the right directory, which is `prod_aas/advertising/sponsored/`.
+
 
 
