@@ -9,7 +9,7 @@ Shorthand has a website for [Guidelines and help](http://www.shorthand.happyfox.
 
 * User our atxne.ws bitly account in Passpack.
 * VIA is is just the account: "statesman" or "austin360"
-* Facebook App ID: 881505665256530
+* Statesman Facebook App ID: 881505665256530
 
 ## Adding Brightcove video
 
@@ -36,31 +36,23 @@ We've tried using the [Knight Center SoundCiteJS](http://soundcite.knightlab.com
 
 You can also drop a regular Soundcloud embed player in as an HTML block.
 
-## Getting Shorthand projects wrapped by CMG
+## Shorthand for mystatesman.com
 
-We've been sending the index.html file to Jon Robison or Maysam H. to get the minimalist wrap applied to stories. All you have to send them is the index.html file.
+There is a process to upload shorthand projects wrapped for mystatesman.com that adds the meter modals and such.
 
-Thos wrapped files don't currently have Chartbeat, so we need to manually add it until they do.
+Those wrapped files don't currently have Chartbeat, so we need to manually add it until they do.
 
 
-### In the head
+### Add Chartbeat code
 
-The `<head>` tag is in some weird-ass script tag. Search for `/head` to find the end of it and put this code after their `minmalist.js` call.
+In the **Add JS** button in your project, add the following code:
+
 
 ``` javascript
 <!-- chartbeat head -->
 <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
-```
 
-
-### In the body
-
-Same deal as the head, search for `/body` and add this on new lines right before the close tag.
-
-MAKE SURE YOU CHECK THE `chartbeatdoman` FIELD AND UPDATE WITH THE CORRECT DOMAIN AS NECESSARY.
-
-``` javascript
-<!--  Chartbeat code -->
+<!--  Chartbeat body -->
 
 <script type="text/javascript">
   var chartbeatdomain = 'mystatesman' + '.com'
@@ -83,22 +75,63 @@ MAKE SURE YOU CHECK THE `chartbeatdoman` FIELD AND UPDATE WITH THE CORRECT DOMAI
 
 ### Publishing
 
-We are currently putting these on the projects server. Make sure you've worked with the designer of the project to use the write directory location based on the URL they've put in the sharing setup of the Shorthand project.
+MyStatesman.com projects are uploaded to Amazon AWS. Each user has their own login to the upload site.
 
-## Metrics if not wrapped by CMG
+* To download your project from shorthand, go to **Publish**, then click **Download ZIP**.
+* Rename the zip file to the last part of the url string you want to publish at, like `/seasonal-serenades/`.
+* Go to [the console](https://cmg-dst.signin.aws.amazon.com/console).
+* Click on S3.
+* Click on the link for `staging-specials.mystatesman.com`
+* Click **Upload**.
+* Drag and drop the zip file to the window as indicated.
+* Click the **Start Upload** button.
 
-I've moved this from a php-based include system to putting it all in the index.html file. I've left the old `metrics-head.inc` and `metrics.inc` files for posterity.
+The file will upload, and then will get processed after a bit, moving to the `specials.mystatesman.com` folder, where it is available at `http://specials.mystatesman.com/whatever-you-called-your-file/`
+
+
+## Free shorthands on the projects server
+
+Since the AWS process wraps shorthands with metrics code, we have to publish free shorthands on the projects server.
+
+* Under **Themes**, choose *CMG - Free Sites*.
+* Do all the other sharing and such that you'll need.
+  - For editorial, your published url will be `http://projects.statesman.com/[section]/[projectname]` where the seciton 
+  - For sponsored content, for now the published url will be `http://host.coxnewsweb.com/aas/advertising/sponsored/[path-to-your-project]/`
+* In the **Add JS** screen, you will need to add some metrics code. See "In Add JS" below.
 
 ### Logo
 
-* Thought is as of 5/29/2015 to use the `logo-short-black-ia.png`, which just says Statesman. It has been run through a program called [ImageAlpha](http://pngmini.com) to clean it up, based on Shorthand recommendations.
+Logos are added at the top fo the free template.
+
+* For Statesman, use the `logo-short-black-ia.png`, which just says Statesman. You can download it from this repo. (It has been run through a program called [ImageAlpha](http://pngmini.com) to clean it up, based on Shorthand recommendations.)
+* For Austin360, use the `austin360.png` logo, which is available in this repo. Also run through ImageAlpha.
 * `logo-ia.png` is the full Austin American-Statesman logo, which has been run through ImageAlpha. It is too wide for phones, but we'll retain it in case we want to use it some time in the future.
+* Sponsored content may have a different logo.
 
-### In the head
+### In Add JS
 
-Place the following code right after the open `<head>` tag:
+The following needs to be added in **Add JS**. Note the first couple of lines need some configuration:
+
+I usually go to an existing page and look at their metrics to decide what to put here.
+
+* projectSite: should be "statesman" or "austin360"
+* projectChannel: The Medley channel. Usually "news" or "sports". Loo for .channel.
+* projectCategory: Medley subcategory. Look at .prop14
+* projectSubCategory: About your project. Usually the url like `seasonal-serenades`. Don't use spaces.
+* projectByline: lower case names, separated by commas if more than one. Look at s_coxnews.prop23.
+
 
 ``` javascript
+
+<!-- cmg footer metrics -->
+<script type="text/javascript">
+  var projectSite = "statesman";
+  var projectChannel = "news"; // Medley Category
+  var projectCategory = "local"; // Medley subCategory
+  var projectSubCategory = "shorthand-project-name"; // project directory no spaces
+  var projectByline = ""; //lower case names of authors
+</script>
+
 <!-- Quantcast Tag, part 1 -->
 <script type="text/javascript">
   var _qevents = _qevents || [];
@@ -118,24 +151,6 @@ Place the following code right after the open `<head>` tag:
 
 <!-- favicon -->
 <link rel="shortcut icon" href="http://media.cmgdigital.com/shared/theme-assets/242014/www.statesman.com_5126cb2068bd43d1ab4e17660ac48255.ico" />
-```
-
-
-### In the body
-
-* Place the following just before the closing `</body>` tag
-* Update the projectSite, projectChannel, projectCategory and projectSubCategory values.
-
-
-``` javascript
-
-<!-- cmg footer metrics -->
-<script type="text/javascript">
-  var projectSite = "statesman";
-  var projectChannel = "news"; // Medley Category
-  var projectCategory = "local"; // Medley subCategory
-  var projectSubCategory = "shorthand-project-name"; // project name
-</script>
 
 <!-- statesman sitecatalyst to test blanks -->
 <script language="JavaScript" type="text/javascript"><!--
@@ -172,8 +187,8 @@ s.prop18=""
 s.prop19=""
 s.prop20=""
 s.prop21=projectSite
-s.prop22="flat pages"
-s.prop23=""
+s.prop22=""
+s.prop23="projectByline"
 s.prop42=projectSite
 s.prop43="newspaper"
 s.prop57=document.referrer
@@ -198,8 +213,8 @@ s.eVar18=""
 s.eVar19=""
 s.eVar20=""
 s.eVar21=s.prop21
-s.eVar22="flat pages"
-s.eVar23=""
+s.eVar22=""
+s.eVar23="projectByline"
 s.eVar42=s.prop42
 s.eVar43="newspaper"
 s.eVar55=s.pageName
@@ -248,27 +263,4 @@ height="1" width="1" border="0" alt="" /></noscript><!--/DO NOT REMOVE/-->
 
 ```
 
-## CSS changes
 
-These are optional. With the newer Shorthand template, we don't **have** to change this.
-
-The CSS window has some example targeting like the `story-title` and `story-heading`.
-
-Here is an example pulling in a Google font and then applying it to those styles. (They are snips, not the entire CSS file.):
-
-``` css
-<link href='http://fonts.googleapis.com/css?family=Merriweather:400,400italic,900|Merriweather+Sans:400,400italic,800' rel='stylesheet' type='text/css'>
-
-/* Title Section */
-.section-title .story-title {
-    font-family: 'Merriweather', Arial, serif; font-weight: 900;
-}
-.section-title .story-heading {
-    font-family: 'Merriweather', Arial, serif; font-weight: 400;
-}
-
-/* Text Over Media */
-.section-text-over-media .text-over-media-inner {
-    font-family: 'Merriweather', Arial, serif; font-weight: 900;
-}
-```
