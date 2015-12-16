@@ -9,7 +9,8 @@ Shorthand has a website for [Guidelines and help](http://www.shorthand.happyfox.
 
 * User our atxne.ws bitly account in Passpack.
 * VIA is is just the account: "statesman" or "austin360"
-* Statesman Facebook App ID: 881505665256530
+* specials.mystatesman.com Facebook App ID: 881505665256530
+* projects.statesman.com Facebook App ID: 1019142718149176
 
 ## Adding Brightcove video
 
