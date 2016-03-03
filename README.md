@@ -109,7 +109,7 @@ Logos are added at the top fo the free template.
 * `logo-ia.png` is the full Austin American-Statesman logo, which has been run through ImageAlpha. It is too wide for phones, but we'll retain it in case we want to use it some time in the future.
 * Sponsored content may have a different logo.
 
-### In Add JS
+### In 'Add JS'
 
 The following needs to be added in **Add JS**. Note the first several of lines need configuration. For guidance, I usually look at the source code of an existing page and look at their metrics to decide what to put here.
 
