@@ -1,6 +1,8 @@
 Shorthand stuff
 ======================
 
+SOME OF THESE NOTES, AND MORE RECENT VERSIONS, ARE ON THE [STATESMAN WIKI](http://wiki.statesman.com/doku.php?id=web_content_help:shorthand_tips).
+
 ## Shorthand help docs
 
 Shorthand has a website for [Guidelines and help](http://www.shorthand.happyfox.com/home), including [Media sizes](http://www.shorthand.happyfox.com/kb/section/5/).
