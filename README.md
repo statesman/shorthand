@@ -1,117 +1,52 @@
 Shorthand stuff
 ======================
 
-SOME OF THESE NOTES, AND MORE RECENT VERSIONS, ARE ON THE [STATESMAN WIKI](http://wiki.statesman.com/doku.php?id=web_content_help:shorthand_tips).
+BASIC SHORTHAND NOTES FOR PUBLISHING ON SPECIALS.STATESMAN.COM ARE ON THE [STATESMAN WIKI](http://wiki.statesman.com/doku.php?id=web_content_help:shorthand_tips).
 
-## Shorthand help docs
+## Publishing Shorthand on projects.statesman.com
 
-Shorthand has a website for [Guidelines and help](http://www.shorthand.happyfox.com/home), including [Media sizes](http://www.shorthand.happyfox.com/kb/section/5/).
-
-## Sharing setup
-
-* User our atxne.ws bitly account in Passpack.
-* VIA is is just the account: "statesman" or "austin360"
-* specials.mystatesman.com Facebook App ID: 881505665256530
-* projects.statesman.com Facebook App ID: 1019142718149176
-
-## Adding Brightcove video
-
-* You'll need this site [www.embedresponsively.com](www.embedresponsively.com), then click on the tab **Generic iFrame**.
-* Go into Brightcove and find your video
-* On the right under Quick Video Publish, go under "Select a player" and choose **JANUS Chromeless Single**.
-* Copy the JavaScript code into the Embed Responsively site and click **Embed**.
-* Go below the video shown and copy the Embed code listed there.
-* Go into Shorthand and create a New Section and pick **Custom HTML**
-* Remove the dummy H1 line and replace it with your embed code.
-
-Note, on Embed Responsibly they suggest taking out any parameters with sizes in the original embed. We haven't at this point, but it might be worth considering if we see sizing problems on some platforms.
-
-## Soundcite
-
-We've tried using the [Knight Center SoundCiteJS](http://soundcite.knightlab.com/) project in Shorthand, and it is possible, with some caveats.
-
-* The paragraph of text where you want to us the span tag with the sound reference must in an HTML block. Only those with Developer status (Christian & Andrew) can add them.
-* The SoundCiteJS code can be added outside the `<script>` tags in the JAVASCRIPT section in Shorthand (again, by a developer).
-
-```
-<link href='//cdn.knightlab.com/libs/soundcite/latest/css/player.css' rel='stylesheet' type='text/css'><script type='text/javascript' src='//cdn.knightlab.com/libs/soundcite/latest/js/soundcite.min.js'></script>
-```
-
-You can also drop a regular Soundcloud embed player in as an HTML block.
-
-## Shorthand for mystatesman.com
-
-There is a process to upload shorthand projects wrapped for mystatesman.com that adds the meter modals and such.
-
-Those wrapped files don't currently have Chartbeat, so we need to manually add it until they do.
-
-
-### Add Chartbeat code
-
-In the **Add JS** button in your project, add the following code:
-
-
-``` javascript
-<!-- chartbeat head -->
-<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
-
-<!--  Chartbeat body -->
-
-<script type="text/javascript">
-  var chartbeatdomain = 'mystatesman' + '.com'
-  var _sf_async_config = { uid: 31585, domain: chartbeatdomain, useCanonical: true };
-  (function() {
-    function loadChartbeat() {
-      window._sf_endpt = (new Date()).getTime();
-      var e = document.createElement('script');
-      e.setAttribute('language', 'javascript');
-      e.setAttribute('type', 'text/javascript');
-      e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
-     document.body.appendChild(e);
-    };
-    var oldonload = window.onload;
-    window.onload = (typeof window.onload != 'function') ?
-      loadChartbeat : function() { oldonload(); loadChartbeat(); };
-  })();
-</script>
-```
-
-### Publishing
-
-MyStatesman.com projects are uploaded to Amazon AWS. Each user has their own login to the upload site.
-
-* To download your project from shorthand, go to **Publish**, then click **Download ZIP**.
-* Rename the zip file to the last part of the url string you want to publish at, like `/seasonal-serenades/`.
-* Go to [the console](https://cmg-dst.signin.aws.amazon.com/console).
-* Click on S3.
-* Click on the link for `staging-specials.mystatesman.com`
-* Click **Upload**.
-* Drag and drop the zip file to the window as indicated.
-* Click the **Start Upload** button.
-
-The file will upload, and then will get processed after a bit, moving to the `specials.mystatesman.com` folder, where it is available at `http://specials.mystatesman.com/whatever-you-called-your-file/`
-
-
-## Free shorthands on the projects server
-
-Since the AWS process wraps shorthands with metrics code, we have to publish free shorthands on the projects server.
-
-* Under **Themes**, choose *CMG - Free Sites*.
-* Do all the other sharing and such that you'll need.
-  - For editorial, your published url will be `http://projects.statesman.com/[section]/[projectname]` where the seciton 
-  - For sponsored content, for now the published url will be `http://host.coxnewsweb.com/aas/advertising/sponsored/[path-to-your-project]/`
-* In the **Add JS** screen, you will need to add some metrics code. See "In Add JS" below.
+There are a couple of differences that need to be applied if you are publishing a shorthand to projects.statesman.com.
 
 ### Logo
 
 Logos are added at the top fo the free template.
 
-* For Statesman, use the `logo-short-black-ia.png`, which just says Statesman. You can download it from this repo. (It has been run through a program called [ImageAlpha](http://pngmini.com) to clean it up, based on Shorthand recommendations.)
+#### Try SVG
+I haven't tried them yet
+* For Statesman, use the `statesman.svg`, which just says Statesman. You can download it from this repo. (I NEED TO TEST THE SVG. Might use logo-short-black-ia.png if it doesn't work.)
+
+#### Fallback pngs
+
+* For Statesman, use the logo-short-black-ia.png, which just says Statesman. You can download it from this repo. (It has been run through a program called ImageAlpha to clean it up, based on Shorthand recommendations.)
 * For Austin360, use the `austin360.png` logo, which is available in this repo. Also run through ImageAlpha.
 * `logo-ia.png` is the full Austin American-Statesman logo, which has been run through ImageAlpha. It is too wide for phones, but we'll retain it in case we want to use it some time in the future.
 * Sponsored content may have a different logo.
 
-### In 'Add JS'
+### THEMES
+
+* There is a CMG - Free Sites theme that can be used.
+* The Shorthand - Combined theme also has a nice font combination
+
+That's basically the only difference.
+
+### SETTINGS
+
+* Same as others, but note the Author/S field doesn't really get stuff into metrics. That happens under Add JS.
+
+### SHARING
+
+* For the full URL:
+  - For editorial, your published url will be `http://projects.statesman.com/[section]/[projectname]` as appropriate. We might come up with a special place for them if we do more of them.
+  - For sponsored content, for now the published url will be `http://host.coxnewsweb.com/aas/advertising/sponsored/[path-to-your-project]/`
+* The Facebook App ID for projects.statesman.com is: 1019142718149176
+
+(That said, I don't think the FB id actually works. We get linter errors.)
+
+### ADD CSS
+
+There isn't anything required here.
+
+### ADD JS
 
 The following needs to be added in **Add JS**. Note the first several of lines need configuration. For guidance, I usually look at the source code of an existing page and look at their metrics to decide what to put here.
 
@@ -261,21 +196,26 @@ height="1" width="1" border="0" alt="" /></noscript><!--/DO NOT REMOVE/-->
 
 ```
 
-
 ### Favicons
 
 The only way to update the favicon is to do it after you have downloaded it. You'll add this to index.html. I would add it just after the `<title>` tag.
 
+MyStatesman (I like the black one for projects)
+```
+<link rel="shortcut icon" href="//mystatesman.com/r/PortalConfig/np-paid/assets/mystatesman/images/favicon.ico" />
+```
+
+
 Statesman
 ``` html
-<link rel="shortcut icon" href="http://media.cmgdigital.com/shared/theme-assets/162015/www.statesman.com_bf77ed61f1f94479978e65af7cc32071.ico" />
+<link rel="shortcut icon" href="//statesman.com/r/PortalConfig/np-free/assets/statesman/images/favicon.ico"/>
 ```
+
 
 Austin360
 ``` html
-<link rel="shortcut icon" href="http://media.cmgdigital.com/shared/theme-assets/162015/www.austin360.com_22903be6a1284aafae1b0ed32b32c102.ico" />
+<link rel="shortcut icon" href="//austin360.com/r/PortalConfig/np-free/assets/austin360/images/favicon.ico"/>
 ```
-
 
 ### Publishing
 
